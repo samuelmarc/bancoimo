@@ -8,39 +8,39 @@ const gameState = {
     ],
     currentPlayerIndex: 0,
     properties: [
-        { id: 0, name: "Partida", price: 0, group: "corner", type: "start" },
-        { id: 1, name: "Leblon", price: 200, group: 1, rent: [40, 200, 600, 1800, 3200, 5000], owner: null, houses: 0 },
-        { id: 2, name: "Av. Vieira Souto", price: 200, group: 1, rent: [40, 200, 600, 1800, 3200, 5000], owner: null, houses: 0 },
-        { id: 3, name: "Sorte/Reves", price: 0, group: "chance", type: "chance" },
-        { id: 4, name: "Av. N.S. Copacabana", price: 240, group: 2, rent: [60, 300, 900, 2000, 3600, 6000], owner: null, houses: 0 },
-        { id: 5, name: "Estação", price: 400, group: "railroad", rent: [100, 200, 400, 800], owner: null },
-        { id: 6, name: "Av. Presidente Vargas", price: 280, group: 2, rent: [80, 400, 1200, 2800, 4400, 7000], owner: null, houses: 0 },
-        { id: 7, name: "Av. Rio Branco", price: 320, group: 2, rent: [100, 500, 1500, 3200, 5000, 8000], owner: null, houses: 0 },
-        { id: 8, name: "Interlagos", price: 360, group: 3, rent: [120, 600, 1800, 4000, 6000, 9000], owner: null, houses: 0 },
-        { id: 9, name: "Prisão", price: 0, group: "corner", type: "jail" },
-        { id: 10, name: "Morumbi", price: 360, group: 3, rent: [120, 600, 1800, 4000, 6000, 9000], owner: null, houses: 0 },
-        { id: 11, name: "Companhia", price: 300, group: "utility", rent: [20, 100], owner: null },
-        { id: 12, name: "Flamengo", price: 400, group: 3, rent: [160, 800, 2000, 4400, 7000, 10000], owner: null, houses: 0 },
-        { id: 13, name: "Botafogo", price: 440, group: 4, rent: [180, 900, 2400, 5600, 8000, 11000], owner: null, houses: 0 },
-        { id: 14, name: "Estação", price: 400, group: "railroad", rent: [100, 200, 400, 800], owner: null },
-        { id: 15, name: "Av. Brasil", price: 480, group: 4, rent: [200, 1000, 3000, 7000, 10000, 12000], owner: null, houses: 0 },
-        { id: 16, name: "Av. Paulista", price: 520, group: 4, rent: [220, 1100, 3200, 8000, 11000, 14000], owner: null, houses: 0 },
+        { id: 0, name: "Início", price: 0, group: "corner", type: "start" },
+        { id: 1, name: "Chácara Santa Aurora", price: 200, group: 1, rent: [40, 200, 600, 1800, 3200, 5000], owner: null, houses: 0 },
+        { id: 2, name: "Horto AgroVida", price: 200, group: 1, rent: [40, 200, 600, 1800, 3200, 5000], owner: null, houses: 0 },
+        { id: 3, name: "Sorte ou Azar", price: 0, group: "chance", type: "chance" },
+        { id: 4, name: "Residência Industrial Vila BRF", price: 240, group: 2, rent: [60, 300, 900, 2000, 3600, 6000], owner: null, houses: 0 },
+        { id: 5, name: "Sorte ou Azar", price: 400, group: "railroad", rent: [100, 200, 400, 800], owner: null },
+        { id: 6, name: "Centro de Pesquisa em Alimentos BRFTech", price: 280, group: 2, rent: [80, 400, 1200, 2800, 4400, 7000], owner: null, houses: 0 },
+        { id: 7, name: "Instituto de Inovação Agroindustrial", price: 320, group: 2, rent: [100, 500, 1500, 3200, 5000, 8000], owner: null, houses: 0 },
+        { id: 8, name: "Granja da Dona Lúcia", price: 360, group: 3, rent: [120, 600, 1800, 4000, 6000, 9000], owner: null, houses: 0 },
+        { id: 9, name: "Auditoria Operacional", price: 0, group: "corner", type: "jail" },
+        { id: 10, name: "Horta Orgânica VerdeVida", price: 360, group: 3, rent: [120, 600, 1800, 4000, 6000, 9000], owner: null, houses: 0 },
+        { id: 11, name: "Sindicato dos Trabalhadores Rurais", price: 300, group: "utility", rent: [20, 100], owner: null },
+        { id: 12, name: "Sítio Vale do Frango", price: 400, group: 3, rent: [160, 800, 2000, 4400, 7000, 10000], owner: null, houses: 0 },
+        { id: 13, name: "Laticínios Boa Aurora", price: 440, group: 4, rent: [180, 900, 2400, 5600, 8000, 11000], owner: null, houses: 0 },
+        { id: 14, name: "Sorte ou Azar", price: 400, group: "railroad", rent: [100, 200, 400, 800], owner: null },
+        { id: 15, name: "Chácara Leiteira do Zé", price: 480, group: 4, rent: [200, 1000, 3000, 7000, 10000, 12000], owner: null, houses: 0 },
+        { id: 16, name: "Moinho São Jorge", price: 520, group: 4, rent: [220, 1100, 3200, 8000, 11000, 14000], owner: null, houses: 0 },
         { id: 17, name: "Parada Livre", price: 0, group: "corner", type: "free" },
-        { id: 18, name: "Jardim Europa", price: 560, group: 5, rent: [240, 1200, 3600, 9000, 12000, 15000], owner: null, houses: 0 },
-        { id: 19, name: "Sorte/Reves", price: 0, group: "chance", type: "chance" },
-        { id: 20, name: "Copacabana", price: 600, group: 5, rent: [260, 1300, 4000, 10000, 13000, 16000], owner: null, houses: 0 },
-        { id: 21, name: "Av. Atlântica", price: 640, group: 5, rent: [280, 1500, 4400, 11000, 14000, 18000], owner: null, houses: 0 },
-        { id: 22, name: "Estação", price: 400, group: "railroad", rent: [100, 200, 400, 800], owner: null },
-        { id: 23, name: "Ipanema", price: 700, group: 6, rent: [350, 1750, 5000, 11000, 14000, 19000], owner: null, houses: 0 },
-        { id: 24, name: "Imposto", price: 0, group: "tax", type: "tax", amount: 200 },
-        { id: 25, name: "Leblon", price: 800, group: 6, rent: [400, 2000, 6000, 14000, 18000, 24000], owner: null, houses: 0 },
-        { id: 26, name: "Av. Brigadeiro Faria Lima", price: 700, group: 7, rent: [350, 1750, 5000, 11000, 14000, 19000], owner: null, houses: 0 },
-        { id: 27, name: "Av. Rebouças", price: 640, group: 7, rent: [280, 1500, 4400, 11000, 14000, 18000], owner: null, houses: 0 },
-        { id: 28, name: "Estação", price: 400, group: "railroad", rent: [100, 200, 400, 800], owner: null },
-        { id: 29, name: "Av. 9 de Julho", price: 600, group: 7, rent: [260, 1300, 4000, 10000, 13000, 16000], owner: null, houses: 0 },
-        { id: 30, name: "Companhia", price: 300, group: "utility", rent: [20, 100], owner: null },
-        { id: 31, name: "Av. Pacaembu", price: 560, group: 8, rent: [240, 1200, 3600, 9000, 12000, 15000], owner: null, houses: 0 },
-        { id: 32, name: "Sorte/Reves", price: 0, group: "chance", type: "chance" }
+        { id: 18, name: "Parque Frigorífico Nacional", price: 560, group: 5, rent: [240, 1200, 3600, 9000, 12000, 15000], owner: null, houses: 0 },
+        { id: 19, name: "Sorte ou Azar", price: 0, group: "chance", type: "chance" },
+        { id: 20, name: "Centro de Congelamento BRF Master", price: 600, group: 5, rent: [260, 1300, 4000, 10000, 13000, 16000], owner: null, houses: 0 },
+        { id: 21, name: "CooperFrango Ltda", price: 640, group: 5, rent: [280, 1500, 4400, 11000, 14000, 18000], owner: null, houses: 0 },
+        { id: 22, name: "Sorte ou Azar", price: 400, group: "railroad", rent: [100, 200, 400, 800], owner: null },
+        { id: 23, name: "Sítio Por do Sol", price: 700, group: 6, rent: [350, 1750, 5000, 11000, 14000, 19000], owner: null, houses: 0 },
+        { id: 24, name: "Feira Nacional do Agronegócio", price: 0, group: "tax", type: "tax", amount: 200 },
+        { id: 25, name: "Granja Esperança", price: 800, group: 6, rent: [400, 2000, 6000, 14000, 18000, 24000], owner: null, houses: 0 },
+        { id: 26, name: "Terminal Logístico Integrado", price: 700, group: 7, rent: [350, 1750, 5000, 11000, 14000, 19000], owner: null, houses: 0 },
+        { id: 27, name: "Unidade de Processamento Aurora Norte", price: 640, group: 7, rent: [280, 1500, 4400, 11000, 14000, 18000], owner: null, houses: 0 },
+        { id: 28, name: "Sorte ou Azar", price: 400, group: "railroad", rent: [100, 200, 400, 800], owner: null },
+        { id: 29, name: "Centro de Tecnologia Agro 5G", price: 600, group: 7, rent: [260, 1300, 4000, 10000, 13000, 16000], owner: null, houses: 0 },
+        { id: 30, name: "Sindicato dos Trabalhadores Rurais", price: 300, group: "utility", rent: [20, 100], owner: null },
+        { id: 31, name: "Cooperativa de Construção Rural", price: 560, group: 8, rent: [240, 1200, 3600, 9000, 12000, 15000], owner: null, houses: 0 },
+        { id: 32, name: "Sorte ou Azar", price: 0, group: "chance", type: "chance" }
     ],
     diceRolled: false,
     gameStarted: false,
@@ -333,7 +333,7 @@ function getGroupName(group) {
         '7': 'Laranja',
         '8': 'Vermelho Escuro',
         'railroad': 'Estações',
-        'utility': 'Companhias'
+        'utility': 'Sindicato dos Trabalhadores Rurais'
     };
     return names[group] || 'Outros';
 }
@@ -423,7 +423,7 @@ function movePlayer(spaces) {
     // Check if passed start
     if (player.position < spaces) {
         player.balance += 400; // Increased from 200 to 400
-        addToGameLog(`${player.name} passou pela partida e recebeu $400.`);
+        addToGameLog(`${player.name} passou pelo Início e recebeu $400.`);
         updatePlayerInfo();
     }
     
@@ -442,7 +442,7 @@ function checkLandingPosition() {
             break;
         case "jail":
             // Just visiting
-            showModal("Prisão", "Você está apenas visitando a prisão.");
+            showModal("Auditoria Operacional", "Você está apenas visitando a Auditoria Operacional.");
             break;
         case "free":
             // Free parking
@@ -563,9 +563,9 @@ function payTax(amount) {
     
     player.balance -= amount;
     updatePlayerInfo();
-    addToGameLog(`${player.name} pagou $${amount} de imposto.`);
+    addToGameLog(`${player.name} pagou $${amount} de Feira Nacional do Agronegócio.`);
     
-    showModal("Imposto", `Você pagou $${amount} de imposto.`);
+    showModal("Feira Nacional do Agronegócio", `Você pagou $${amount} de Feira Nacional do Agronegócio.`);
     
     // Check if player is bankrupt
     if (player.balance < 0) {
@@ -576,20 +576,20 @@ function payTax(amount) {
 // Draw chance card
 function drawChanceCard() {
     const cards = [
-        { text: "Avance até a Partida e receba $400.", action: () => moveToStart() },
+        { text: "Avance até o Início e receba $400.", action: () => moveToStart() },
         { text: "Você ganhou um concurso de belleza! Receba $200.", action: () => receiveMoney(200) },
         { text: "Pague $100 para cada jogador.", action: () => payEachPlayer(100) },
         { text: "Você foi eleito presidente do conselho. Pague $100 para cada jogador.", action: () => payEachPlayer(100) },
         { text: "Sua construção e empréstimo maturam. Receba $300.", action: () => receiveMoney(300) },
-        { text: "Vá para a prisão. Não passe pela partida.", action: () => goToJail() },
+        { text: "Vá para a Auditoria Operacional. Não passe pelo Início.", action: () => goToJail() },
         { text: "Receba $50 de cada jogador.", action: () => receiveFromEachPlayer(50) },
-        { text: "Pague $200 de impostos.", action: () => payTax(200) },
-        { text: "Avance até a Av. Paulista.", action: () => moveToProperty(16) },
-        { text: "Avance até a Av. Vieira Souto.", action: () => moveToProperty(2) }
+        { text: "Pague $200 de Feira Nacional do Agronegócios.", action: () => payTax(200) },
+        { text: "Avance até a Moinho São Jorge.", action: () => moveToProperty(16) },
+        { text: "Avance até a Horto AgroVida.", action: () => moveToProperty(2) }
     ];
     
     const card = cards[Math.floor(Math.random() * cards.length)];
-    showModal("Sorte/Reves", card.text);
+    showModal("Sorte ou Azar", card.text);
     addToGameLog(`${gameState.players[gameState.currentPlayerIndex].name} tirou a carta: ${card.text}`);
     
     // Execute card action
@@ -603,7 +603,7 @@ function moveToStart() {
     player.balance += 400;
     positionTokens();
     updatePlayerInfo();
-    addToGameLog(`${player.name} avançou para a Partida e recebeu $400.`);
+    addToGameLog(`${player.name} avançou para o Início e recebeu $400.`);
 }
 
 // Receive money
@@ -665,7 +665,7 @@ function goToJail() {
     player.position = 9; // Jail position
     player.inJail = true;
     positionTokens();
-    addToGameLog(`${player.name} foi para a prisão!`);
+    addToGameLog(`${player.name} foi para a Auditoria Operacional!`);
 }
 
 // Handle bankruptcy
