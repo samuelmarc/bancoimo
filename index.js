@@ -341,36 +341,55 @@ function getGroupName(group) {
 // Position player tokens on the board
 function positionTokens() {
     gameState.players.forEach(player => {
-        const token = document.getElementById(`token-${player.id}`);
-        const position = player.position;
-        
-        // Calculate position on board (simplified for this example)
-        // In a real implementation, you'd need more complex logic to position tokens
-        // based on the actual board layout
-        let row, col;
-        
-        if (position <= 8) {
-            // Top row
-            row = 1;
-            col = position + 2;
-        } else if (position <= 16) {
-            // Right column
-            row = position - 7;
-            col = 11;
-        } else if (position <= 24) {
-            // Bottom row
-            row = 11;
-            col = 26 - position;
-        } else {
-            // Left column
-            row = 33 - position;
-            col = 1;
-        }
-        
-        token.style.gridRow = row;
-        token.style.gridColumn = col;
+      const tokenEl = document.getElementById(`token-${player.id}`);
+      const coords = boardCoords[player.position];
+      tokenEl.style.gridRow = coords.row;
+      tokenEl.style.gridColumn = coords.col;
     });
-}
+  }
+
+/**
+ * Mapeamento explícito das coordenadas (row, col) de cada casa no tabuleiro 11×11,
+ * na ordem exata usada em gameState.properties (ids de 0 a 32).
+ */
+const boardCoords = [
+    /*  0 */ { row:  1, col:  1 },   // Início (corner)
+    /*  1 */ { row:  1, col:  3 },   // Chácara Santa Aurora
+    /*  2 */ { row:  1, col:  4 },   // Horto AgroVida
+    /*  3 */ { row:  1, col:  5 },   // Sorte ou Azar (chance)
+    /*  4 */ { row:  1, col:  6 },   // Residência Industrial Vila BRF
+    /*  5 */ { row:  1, col:  7 },   // Posto de Distribuição Agrícola (railroad)
+    /*  6 */ { row:  1, col:  8 },   // Centro de Pesquisa BRFTech
+    /*  7 */ { row:  1, col:  9 },   // Instituto de Inovação Agroindustrial
+    /*  8 */ { row:  1, col: 10 },   // Granja da Dona Lúcia
+    /*  9 */ { row:  1, col: 11 },   // Auditoria Operacional (corner)
+  
+    /* 10 */ { row:  3, col: 11 },   // Horta Orgânica VerdeVida
+    /* 11 */ { row:  4, col: 11 },   // Sindicato dos Trabalhadores Rurais (utility)
+    /* 12 */ { row:  5, col: 11 },   // Sítio Vale do Frango
+    /* 13 */ { row:  6, col: 11 },   // Laticínios Boa Aurora
+    /* 14 */ { row:  7, col: 11 },   // Posto de Distribuição Agrícola (railroad)
+    /* 15 */ { row:  8, col: 11 },   // Chácara Leiteira do Zé
+    /* 16 */ { row:  9, col: 11 },   // Moinho São Jorge
+    /* 17 */ { row: 11, col: 11 },   // Parada Livre (corner)
+  
+    /* 18 */ { row: 11, col: 10 },   // Parque Frigorífico Nacional
+    /* 19 */ { row: 11, col:  9 },   // Sorte ou Azar (chance)
+    /* 20 */ { row: 11, col:  8 },   // Centro de Congelamento BRF Master
+    /* 21 */ { row: 11, col:  7 },   // CooperFrango Ltda
+    /* 22 */ { row: 11, col:  6 },   // Posto de Distribuição Agrícola (railroad)
+    /* 23 */ { row: 11, col:  5 },   // Sítio Por do Sol
+    /* 24 */ { row: 11, col:  4 },   // Feira Nacional do Agronegócio (tax)
+    /* 25 */ { row: 11, col:  3 },   // Granja Esperança
+  
+    /* 26 */ { row:  9, col:  1 },   // Terminal Logístico Integrado
+    /* 27 */ { row:  8, col:  1 },   // Unidade de Processamento Aurora Norte
+    /* 28 */ { row:  7, col:  1 },   // Posto de Distribuição Agrícola (railroad)
+    /* 29 */ { row:  6, col:  1 },   // Centro de Tecnologia Agro 5G
+    /* 30 */ { row:  5, col:  1 },   // Sindicato dos Trabalhadores Rurais (utility)
+    /* 31 */ { row:  4, col:  1 },   // Cooperativa de Construção Rural
+    /* 32 */ { row:  3, col:  1 },   // Sorte ou Azar (chance)
+  ];
 
 // Roll dice
 function rollDice() {
@@ -404,7 +423,7 @@ function rollDice() {
         // Close dice modal after a delay
         setTimeout(() => {
             diceModal.style.display = "none";
-            movePlayer(total);
+            animatePlayerMovement(gameState.players[gameState.currentPlayerIndex], total);
         }, 1500);
         
         gameState.diceRolled = true;
@@ -415,21 +434,39 @@ function rollDice() {
     }, 1000);
 }
 
-// Move player
-function movePlayer(spaces) {
-    const player = gameState.players[gameState.currentPlayerIndex];
-    player.position = (player.position + spaces) % 32;
-    
-    // Check if passed start
-    if (player.position < spaces) {
-        player.balance += 400; // Increased from 200 to 400
-        addToGameLog(`${player.name} passou pelo Início e recebeu $400.`);
-        updatePlayerInfo();
+/**
+ * Anima o token de um jogador passando por cada casa até chegar ao destino.
+ * @param {Object} player – o objeto do jogador, com player.position já definido antes do movimento.
+ * @param {number} steps – quantos espaços ele deve andar (valor do dado).
+ */
+async function animatePlayerMovement(player, steps) {
+    const totalCasas = gameState.properties.length;
+    let posAnterior = player.position;
+  
+    for (let i = 0; i < steps; i++) {
+      // Incrementa posição em 1 (circular)
+      const novaPos = (player.position + 1) % totalCasas;
+      player.position = (player.position + 1) % totalCasas;
+  
+      if (novaPos < posAnterior) {
+        player.balance += 400;
+        addToGameLog('${player.name} passou pelo Início e recebeu $400.');
+        updatePlayerInfo(); // atualiza o saldo e health-bar
+      }
+  
+      posAnterior = novaPos;
+  
+      // Reposiciona o token no grid
+      positionTokens();
+  
+      // Aguarda um tempinho (ex: 500ms) antes de ir para a próxima casa
+      await new Promise(resolve => setTimeout(resolve, 500));
     }
-    
-    positionTokens();
+  
+    // Depois de percorrer todos os passos, executa a lógica normal de "caindo" na casa
     checkLandingPosition();
 }
+
 
 // Check what happens when player lands on a position
 function checkLandingPosition() {
