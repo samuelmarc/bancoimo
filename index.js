@@ -221,9 +221,19 @@ function updatePlayerInfo() {
     gameState.players.forEach(player => {
         document.getElementById(`balance-${player.id}`).textContent = player.balance;
     });
-    
+
     updateHealthBars();
     updatePlayerProperties();
+    updatePlayerOrder();
+
+    if (!gameState.diceRolled) {
+        rollDiceBtn.classList.add("animate-pulse");
+        endTurnBtn.classList.remove("animate-pulse");
+    } else {
+        rollDiceBtn.classList.remove("animate-pulse");
+        endTurnBtn.classList.add("animate-pulse");
+    }
+
 }
 
 // Update player health bars based on balance
@@ -303,6 +313,34 @@ function updatePlayerProperties() {
         });
     });
 }
+
+/**
+ * Reordena os elementos dentro de #player-cards, colocando sempre
+ * o jogador atual em primeiro lugar e "mandando" o anterior para o fim.
+ */
+function updatePlayerOrder() {
+    const container = document.getElementById("player-cards");
+    if (!container) return;
+  
+    // Gera a sequência de IDs de jogador a partir de currentPlayerIndex
+    // Ex: se currentPlayerIndex = 2 (player id 3),
+    // a sequência será [3, 4, 1, 2], supondo 4 jogadores no total.
+    const total = gameState.players.length;
+    const sequence = [];
+    for (let offset = 0; offset < total; offset++) {
+      const idx = (gameState.currentPlayerIndex + offset) % total;
+      sequence.push(gameState.players[idx].id);
+    }
+  
+    // Anexa, na ordem, cada card ao container (appendChild desloca para o final
+    // se já existir no DOM, então o efeito é reordenar)
+    sequence.forEach(playerId => {
+      const cardEl = document.getElementById(`player-card-${playerId}`);
+      if (cardEl) {
+        container.appendChild(cardEl);
+      }
+    });
+  }
 
 // Get group color
 function getGroupColor(group) {
@@ -392,7 +430,7 @@ const boardCoords = [
   ];
 
 // Roll dice
-function rollDice() {
+async function rollDice() {
     if (gameState.diceRolled) {
         showModal("Ação inválida", "Você já lançou os dados neste turno.");
         return;
@@ -407,7 +445,7 @@ function rollDice() {
     diceTotal.textContent = "";
     
     // Simulate dice roll with delay
-    setTimeout(() => {
+    setTimeout( async () => {
         const die1 = Math.floor(Math.random() * 6) + 1;
         const die2 = Math.floor(Math.random() * 6) + 1;
         const total = die1 + die2;
@@ -423,7 +461,6 @@ function rollDice() {
         // Close dice modal after a delay
         setTimeout(() => {
             diceModal.style.display = "none";
-            animatePlayerMovement(gameState.players[gameState.currentPlayerIndex], total);
         }, 1500);
         
         gameState.diceRolled = true;
@@ -431,6 +468,8 @@ function rollDice() {
         rollDiceBtn.disabled = false;
         
         addToGameLog(`${gameState.players[gameState.currentPlayerIndex].name} lançou os dados e obteve ${total}.`);
+        await animatePlayerMovement(gameState.players[gameState.currentPlayerIndex], total);
+        updatePlayerInfo();
     }, 1000);
 }
 
