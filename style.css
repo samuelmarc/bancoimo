@@ -1,5 +1,5 @@
 .gradient-bg min-h-screen {
-  background-image: url(20220518_121131_2\ \(1\).webp);
+  background-color: #bdecfc;
 }
 
 .board {
@@ -10,7 +10,7 @@
     height: 900px;
     margin: 0 auto;
     position: relative;
-    background-color: #f5f5dc;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border: 8px solid #8B4513;
@@ -58,14 +58,14 @@
     border: 2px solid white;
 }
 
-.property-group-1 { background-color: #a7d8ff; }
+.property-group-1 { background-color: #58a9eb; }
 .property-group-2 { background-color: #ffb6c1; }
-.property-group-3 { background-color: #98fb98; }
+.property-group-3 { background-color: #6eb66e; }
 .property-group-4 { background-color: #ffd700; }
-.property-group-5 { background-color: #ff6347; }
+.property-group-5 { background-color: #ca4242; }
 .property-group-6 { background-color: #9370db; }
 .property-group-7 { background-color: #ffa500; }
-.property-group-8 { background-color: #008fa1; }
+.property-group-8 { background-color: #58a9eb; }
 
 .modal {
     display: none;
@@ -232,19 +232,19 @@
 }
 
 .railroad {
-    background-color: #e6e6fa;
+    background-color: #dfbf96;
 }
 
 .utility {
-    background-color: #e6f7ff;
+    background-color: #dfbf96;
 }
 
 .chance {
-    background-color: #ffcccb;
+    background-color: #75d4c8;
 }
 
 .tax {
-    background-color: #ffeb99;
+    background-color: #dfbf96;
 }
 
 .player-properties {
