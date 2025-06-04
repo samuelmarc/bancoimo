@@ -653,12 +653,12 @@ function payTax(amount) {
 function drawChanceCard() {
     const cards = [
         { text: "Avance até o Início e receba $400.", action: () => moveToStart() },
-        { text: "Você ganhou um concurso de belleza! Receba $200.", action: () => receiveMoney(200) },
-        { text: "Pague $100 para cada jogador.", action: () => payEachPlayer(100) },
-        { text: "Você foi eleito presidente do conselho. Pague $100 para cada jogador.", action: () => payEachPlayer(100) },
-        { text: "Sua construção e empréstimo maturam. Receba $300.", action: () => receiveMoney(300) },
+        { text: "Nova tecnologia aumenta sua produção $200.", action: () => receiveMoney(200) },
+        { text: "Problemas trabalhistas! Pague $100 para cada jogador.", action: () => payEachPlayer(100) },
+        { text: "Investimento mal-sucedido em galpão. Pague $100 para cada jogador.", action: () => payEachPlayer(100) },
+        { text: "Nova lei de incentivos fiscais. Receba $300.", action: () => receiveMoney(300) },
         { text: "Vá para a Auditoria Operacional. Não passe pelo Início.", action: () => goToJail() },
-        { text: "Receba $50 de cada jogador.", action: () => receiveFromEachPlayer(50) },
+        { text: "Venda relâmpago de embutidos, Receba $50 de cada jogador.", action: () => receiveFromEachPlayer(50) },
         { text: "Pague $200 de Feira Nacional do Agronegócios.", action: () => payTax(200) },
         { text: "Avance até a Moinho São Jorge.", action: () => moveToProperty(16) },
         { text: "Avance até a Horto AgroVida.", action: () => moveToProperty(2) }
