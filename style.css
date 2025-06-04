@@ -1,5 +1,5 @@
 .gradient-bg min-h-screen {
-  background-color: #bdecfc;
+  background-image: url(20220518_121131_2\ \(1\).webp);
 }
 
 .board {
@@ -10,7 +10,7 @@
     height: 900px;
     margin: 0 auto;
     position: relative;
-    background-color: #ffffff;
+    background-color: #f5f5dc;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border: 8px solid #8B4513;
@@ -36,10 +36,8 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-
-
 .corner {
-    background-color: #dfd2b1;
+    background-color: #f0e6cc;
     font-weight: bold;
     display: flex;
     flex-direction: column;
@@ -57,17 +55,17 @@
     z-index: 10;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: all 0.5s ease;
-    border: 2px solid rgb(255, 253, 253);
+    border: 2px solid white;
 }
 
-.property-group-1 { background-color: #58a9eb; }
+.property-group-1 { background-color: #a7d8ff; }
 .property-group-2 { background-color: #ffb6c1; }
-.property-group-3 { background-color: #6eb66e; }
+.property-group-3 { background-color: #98fb98; }
 .property-group-4 { background-color: #ffd700; }
-.property-group-5 { background-color: #ca4242; }
+.property-group-5 { background-color: #ff6347; }
 .property-group-6 { background-color: #9370db; }
 .property-group-7 { background-color: #ffa500; }
-.property-group-8 { background-color: #58a9eb; }
+.property-group-8 { background-color: #008fa1; }
 
 .modal {
     display: none;
@@ -82,7 +80,7 @@
 }
 
 .modal-content {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     margin: 15% auto;
     padding: 25px;
     border-radius: 12px;
@@ -145,7 +143,7 @@
 
 .dice-btn {
     background: linear-gradient(145deg, #4a6bff, #3a56d4);
-    color: rgb(255, 255, 255);
+    color: white;
     border: none;
     border-radius: 50%;
     width: 60px;
@@ -181,7 +179,7 @@
     transform: translate(-50%, -50%);
     width: 200px;
     height: 200px;
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -234,19 +232,19 @@
 }
 
 .railroad {
-    background-color: #dfbf96;
+    background-color: #e6e6fa;
 }
 
 .utility {
-    background-color: #dfbf96;
+    background-color: #e6f7ff;
 }
 
 .chance {
-    background-color: #75d4c8;
+    background-color: #ffcccb;
 }
 
 .tax {
-    background-color: #dfbf96;
+    background-color: #ffeb99;
 }
 
 .player-properties {
@@ -385,7 +383,7 @@
 }
 
 .winner-content {
-    background: rgb(255, 255, 255);
+    background: white;
     padding: 30px;
     border-radius: 10px;
     text-align: center;
@@ -420,30 +418,4 @@
     100% {
         background-position: 0% 50%;
     }
-}
-/* Tooltip para propriedades */
-.property .tooltip-text {
-    visibility: hidden;
-    opacity: 0;
-    width: 160px;
-    background-color: rgba(51, 51, 51, 0.9);
-    color: #535353;
-    text-align: center;
-    border-radius: 6px;
-    padding: 6px 10px;
-    position: absolute;
-    bottom: 105%; /* aparece acima */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 30;
-    font-size: 11px;
-    line-height: 1.4;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-}
-
-.property:hover .tooltip-text {
-    visibility: visible;
-    opacity: 1;
 }
