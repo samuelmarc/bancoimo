@@ -499,7 +499,7 @@ async function animatePlayerMovement(player, steps) {
       positionTokens();
   
       // Aguarda um tempinho (ex: 500ms) antes de ir para a próxima casa
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 1500));
     }
   
     // Depois de percorrer todos os passos, executa a lógica normal de "caindo" na casa
