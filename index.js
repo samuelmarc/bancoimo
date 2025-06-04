@@ -420,10 +420,10 @@ const boardCoords = [
     /* 24 */ { row: 11, col:  4 },   // Feira Nacional do Agronegócio (tax)
     /* 25 */ { row: 11, col:  3 },   // Granja Esperança
   
-    /* 26 */ { row:  9, col:  1 },   // Terminal Logístico Integrado
-    /* 27 */ { row:  8, col:  1 },   // Unidade de Processamento Aurora Norte
-    /* 28 */ { row:  7, col:  1 },   // Posto de Distribuição Agrícola (railroad)
-    /* 29 */ { row:  6, col:  1 },   // Centro de Tecnologia Agro 5G
+    /* 26 */ { row:  10, col:  2 },   // Unidade de Processamento Aurora Norte
+    /* 27 */ { row:  10, col:  1 },   //Terminal Logistico integrado
+    /* 28 */ { row:  8, col:  1 },   // Posto de Distribuição Agrícola (railroad)
+    /* 29 */ { row:  7, col:  1 },   // Centro de Tecnologia Agro 5G
     /* 30 */ { row:  5, col:  1 },   // Sindicato dos Trabalhadores Rurais (utility)
     /* 31 */ { row:  4, col:  1 },   // Cooperativa de Construção Rural
     /* 32 */ { row:  3, col:  1 },   // Sorte ou Azar (chance)
