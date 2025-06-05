@@ -1,19 +1,18 @@
-.gradient-bg min-h-screen {
-  background-image: url(20220518_121131_2\ \(1\).webp);
-}
-
 .board {
-    display: grid;
-    grid-template-columns: repeat(11, 1fr);
-    grid-template-rows: repeat(11, 1fr);
-    width: 70%;
-    height: 900px;
-    margin: 0 auto;
-    position: relative;
-    background-color: #f5f5dc;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: 8px solid #8B4513;
+  display: grid;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+  grid-template-rows: repeat(11, minmax(0, 1fr));
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  position: relative;
+  background-color: #f5f5dc;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 8px solid #8B4513;
+  overflow: hidden;
 }
 
 .property {
@@ -28,6 +27,7 @@
     position: relative;
     transition: all 0.3s ease;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .property:hover {
